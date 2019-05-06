@@ -71,6 +71,8 @@ function drawImage() {
         ctx = canvas.getContext('2d');
     fitToContainer(canvas);
 
+    ctx.imageSmoothingEnabled = false;
+
     ctx.fillStyle = 'white';
 
     function fitToContainer(canvas) {
