@@ -94,6 +94,7 @@ textarea {
 }
 
 .save-btn {
+    margin-top: 10px;
     background-color: #2654ab;
     border-color: #2654ab;
     color: #fff;
