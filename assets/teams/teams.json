@@ -1,0 +1,65 @@
+{
+    "herr": {
+        "wormo": {
+            "name": "IK Wormo",
+            "stadium": "Exercisfältet",
+            "img": "img/wormo.png"
+        },
+        "besa": {
+            "name": "FK Besa",
+            "stadium": "Landskrona IP",
+            "img": "img/besa.png"
+        },
+        "vejby": {
+            "name": "Vejby IF",
+            "stadium": "Vejby IP",
+            "img": "img/vejby.png"
+        },
+        "astorp": {
+            "name": "Åstorps FF",
+            "stadium": "Bjärshögs IP",
+            "img": "img/astorp.png"
+        },
+        "klippan": {
+            "name": "Klippans FF",
+            "stadium": "Åbyvallen",
+            "img": "img/klippan.png"
+        },
+        "kagerod": {
+            "name": "Kågeröds BoIF",
+            "stadium": "Brahevallen",
+            "img": "img/kagerod.png"
+        },
+        "eket": {
+            "name": "Ekets GoIF",
+            "stadium": "Ryavallen",
+            "img": "img/eket.png"
+        },
+        "kullavagen": {
+            "name": "Kullavägens BK",
+            "stadium": "Norrvalla IP",
+            "img": "img/kullavagen.png"
+        },
+        "fortuna": {
+            "name": "Fortuna FF",
+            "stadium": "Rydebäcks IP",
+            "img": "img/fortuna.png"
+        },
+        "bjuvstorp": {
+            "name": "Bjuvstorps FF",
+            "stadium": "Hedvalla",
+            "img": "img/bjuvstorp.png"
+        },
+        "odakra": {
+            "name": "Ödåkra IF",
+            "stadium": "Toftavallen",
+            "img": "img/odakra.png"
+        },
+        "tagarp": {
+            "name": "Tågarps AIK",
+            "stadium": "Tågarps IP",
+            "img": "img/klippan.png"
+        }
+    },
+    "dam": {}
+}

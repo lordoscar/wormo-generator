@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Proxima_Nova_Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Regular'), url('/fonts/ProximaNova-Regular.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Proxima Nova Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Thin'), url('fonts/ProximaNovaT-Thin.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Proxima Nova Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Light'), url('fonts/ProximaNova-Light.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Proxima Nova Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Semibold'), url('fonts/ProximaNova-Semibold.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Proxima Nova Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Bold'), url('fonts/ProximaNova-Bold.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Proxima Nova Extrabold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Extrabold'), url('fonts/ProximaNova-Extrabld.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Proxima Nova Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Proxima Nova Black'), url('fonts/ProximaNova-Black.woff') format('woff');
+    }
+
+body {
+    font-family: 'Proxima Nova';
+}
+
+.center {
+    text-align: center;
+}
+
+.btn-lg {
+    display: block;
+    margin: auto;
+    width: 40%;
+    margin-top: 20px;
+    background-color: #2654ab;
+    border-color: #2654ab;
+}
+
+.navbar {
+    background: #2654ab;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default:hover .navbar-brand:hover {
+    background: #2654ab;
+    color: #fff;
+}
+
+h4 {
+    font-family: 'Proxima Nova Bold'; 
+}
+
+.btn {
+    font-family: 'Proxima Nova Light';
+}
