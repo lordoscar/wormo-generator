@@ -92,3 +92,10 @@ textarea {
 .option-about {
     font-family: 'Proxima Nova Semibold';
 }
+
+.save-btn {
+    background-color: #2654ab;
+    border-color: #2654ab;
+    color: #fff;
+    width: 100%;
+}

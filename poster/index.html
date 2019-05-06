@@ -40,15 +40,22 @@
             <h4>Rubrik</h4>
             <textarea class="title-textarea" rows="1">Rubrik!</textarea>
             <h4>Hemmalag</h4>
-            <select class="home-team-select"></select>
+            <select class="home-team-select" ></select>
             <h4>Bortalag</h4>
-            <select class="away-team-select"></select>
+            <select class="away-team-select" ></select>
             <h4>Datum och tid</h4>
             <textarea class="date-textarea" rows="1">Lördag 4 maj 14:00</textarea>
+            <h4>Instagram</h4>
+            <textarea class="insta-textarea" rows="1">ikwormo_herr</textarea>
+            <h4>Facebook</h4>
+            <textarea class="fb-textarea" rows="1">ikwormo</textarea>
+            <button class="btn btn-default save-btn" onclick="saveImage()">Spara</button>
         </div>
         <div class="col-sm-8 canvas-container">
             <canvas>
-                <img class="overlay-img" src="../assets/img/overlay.png">
+                <img class="overlay-img" src="../assets/img/overlay.png" crossOrigin="Anonymous">
+                <img class="fb-icon" src="../assets/img/fb.png" crossOrigin="Anonymous">
+                <img class="insta-icon" src="../assets/img/insta.png" crossOrigin="Anonymous">
             </canvas>
         </div>
 
