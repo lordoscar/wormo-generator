@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script src="poster.js"></script>
+    <script type="text/javascript" src="../assets/teams/teams.js"></script>
 </head>
 
 <body>
@@ -32,15 +33,15 @@
     <div class="container">
         <div class="option-pane col-sm-4">
             <h4>Bakgrundsbild</h4>
-            <a class="btn btn-primary">Välj bild</a>
+            <input type="file" onchange="changedImg()">
             <h4>Serie</h4>
             <textarea rows="1"></textarea>
             <h4>Rubrik</h4>
             <textarea rows="1"></textarea>
             <h4>Hemmalag</h4>
-            <a class="btn btn-primary">Välj</a>
+            <select class="home-team-select"></select>
             <h4>Bortalag</h4>
-            <a class="btn btn-primary">Välj</a>
+            <select class="away-team-select"></select>
         </div>
         <div class="col-sm-8 canvas-container">
             <canvas>
