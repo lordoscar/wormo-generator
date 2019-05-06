@@ -97,5 +97,9 @@ textarea {
     background-color: #2654ab;
     border-color: #2654ab;
     color: #fff;
+    margin-bottom: 20px;
+}
+
+.option-control {
     width: 100%;
 }
