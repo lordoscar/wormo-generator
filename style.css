@@ -81,10 +81,14 @@ h4 {
     font-family: 'Proxima Nova Bold';
 }
 
-.btn {
+textarea {
     font-family: 'Proxima Nova Light';
 }
 
 textarea {
     resize: none;
+}
+
+.option-about {
+    font-family: 'Proxima Nova Semibold';
 }

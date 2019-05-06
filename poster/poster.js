@@ -4,6 +4,30 @@ let ctx;
 let bgimg;
 
 $(function () {
+    var cw = $('.canvas-container').width();
+    $('.canvas-container').css({ 'height': cw + 'px' });
+
+    // Handler for .ready() called.
+    canvas = document.querySelector('canvas'),
+        ctx = canvas.getContext('2d');
+    fitToContainer(canvas);
+
+    ctx.fillStyle = 'white';
+
+    function fitToContainer(canvas) {
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+
+    bgimg = new Image();
+    bgimg.onload = function () {
+        drawImage(bgimg);
+    }
+
+    bgimg.src = "img/bg.jpg";
+
     //$.getJSON('../assets/teams/teams.json'), function(data){
     let teams = JSON.parse(data);
 
@@ -29,32 +53,6 @@ $(function () {
     });
     $('.home-team-select').append("</optgroup>");
     $('.away-team-select').append("</optgroup>");
-});
-
-document.fonts.ready.then(function () {
-    var cw = $('.canvas-container').width();
-    $('.canvas-container').css({ 'height': cw + 'px' });
-
-    // Handler for .ready() called.
-    canvas = document.querySelector('canvas'),
-        ctx = canvas.getContext('2d');
-    fitToContainer(canvas);
-
-    ctx.fillStyle = 'white';
-
-    function fitToContainer(canvas) {
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-    }
-
-    bgimg = new Image();
-    bgimg.onload = function () {
-        drawImage(bgimg);
-    }
-
-    bgimg.src = "img/bg.jpg";
 });
 
 function changedImg(){
@@ -87,31 +85,43 @@ function drawImage(bgimg) {
 
     ctx.font = ((canvas.height / 100) * 4) + "px Proxima Nova";
     ctx.textAlign = "center";
-    ctx.fillText('DIVISION 4 VÄSTRA', canvas.width/2, (canvas.height / 100) * 5);
+    ctx.fillText(document.querySelector('.division-textarea').innerHTML.toUpperCase(), canvas.width/2, (canvas.height / 100) * 5);
 
     ctx.font = "italic " + ((canvas.height / 100) * 8) + "px Proxima Nova Bold";
-    ctx.fillText('RUBRIK!', canvas.width/2, (canvas.height / 100) * 20);
+    ctx.fillText(document.querySelector('.title-textarea').innerHTML.toUpperCase(), canvas.width/2, (canvas.height / 100) * 20);
 
-    let home = 'wormo';
-    let away = 'besa';
+    let home = document.querySelector('.home-team-select').value;
+    let away = document.querySelector('.away-team-select').value;
 
-    if(home == 'wormo'){
+    if(home == 'IK Wormo'){
         ctx.font = "italic " + ((canvas.height / 100) * 10) + "px Proxima Nova Bold";
-        ctx.fillText('HEMMALAG', canvas.width/2, (canvas.height / 100) * 38);
+        ctx.fillText(home.toUpperCase(), canvas.width/2, (canvas.height / 100) * 38);
     }else{
         ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova";
-        ctx.fillText('HEMMALAG', canvas.width/2, (canvas.height / 100) * 38);
+        ctx.fillText(home.toUpperCase(), canvas.width/2, (canvas.height / 100) * 38);
     }
     
     ctx.font = "italic "+ ((canvas.height / 100) * 5) + "px Proxima Nova Bold";
     ctx.textAlign = "center";
     ctx.fillText('vs', canvas.width/2, (canvas.height / 100) * 48);
 
-    if(away == 'wormo'){
+    if(away == 'IK Wormo'){
         ctx.font = "italic " + ((canvas.height / 100) * 10) + "px Proxima Nova Bold";
-        ctx.fillText('BORTALAG', canvas.width/2, (canvas.height / 100) * 63);
+        ctx.fillText(away.toUpperCase(), canvas.width/2, (canvas.height / 100) * 63);
     }else{
         ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova Light";
-        ctx.fillText('BORTALAG', canvas.width/2, (canvas.height / 100) * 63);
+        ctx.fillText(away.toUpperCase(), canvas.width/2, (canvas.height / 100) * 63);
     }
+
+    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Semibold";
+    let datex = ctx.measureText(document.querySelector('.date-textarea').value.toUpperCase());
+    console.log('datex: ' + datex.width);
+    let stadiumx = ctx.measureText(' EXERCISFÄLTET');
+    console.log('stadiumx: ' + stadiumx.width);
+
+    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Semibold";
+    ctx.fillText(document.querySelector('.date-textarea').value.toUpperCase(), canvas.width/2 - stadiumx.width/2, (canvas.height / 100) * 75);
+    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Light";
+    ctx.fillText('EXERCISFÄLTET', canvas.width/2 + datex.width/2, (canvas.height / 100) * 75);
+
 }
