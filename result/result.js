@@ -33,9 +33,10 @@ $(function () {
 
     document.querySelector('.division-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.title-textarea').addEventListener("keyup", drawImage);
-    document.querySelector('.date-textarea').addEventListener("keyup", drawImage);
+    document.querySelector('.scorer-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.insta-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.fb-textarea').addEventListener("keyup", drawImage);
+    document.querySelector('.hashtag-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.home-team-select').addEventListener("change", drawImage);
     document.querySelector('.away-team-select').addEventListener("change", drawImage);
 
@@ -116,60 +117,41 @@ function drawImage() {
         }
     });
 
-    ctx.font = ((canvas.height / 100) * 4) + "px Proxima Nova";
+    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova";
     ctx.textAlign = "center";
-    ctx.fillText(document.querySelector('.division-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 5);
+    ctx.fillText(document.querySelector('.division-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 8);
 
     ctx.font = "italic " + ((canvas.height / 100) * 8) + "px Proxima Nova Bold";
     ctx.fillText(document.querySelector('.title-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 20);
 
-    ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova Light";
-    ctx.fillText("____________", canvas.width / 2, (canvas.height / 100) * 26);
-
-    if (home.name == 'IK Wormo') {
-        ctx.font = "italic " + ((canvas.height / 100) * 10) + "px Proxima Nova Bold";
-        ctx.fillText(home.name.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 38);
-    } else {
-        ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova";
-        ctx.fillText(home.name.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 38);
-    }
-
-    ctx.font = ((canvas.height / 100) * 5) + "px Proxima Nova";
-    ctx.textAlign = "center";
-    ctx.fillText('vs', canvas.width / 2, (canvas.height / 100) * 46);
-
-    if (away.name == 'IK Wormo') {
-        ctx.font = "italic " + ((canvas.height / 100) * 10) + "px Proxima Nova Bold";
-        ctx.fillText(away.name.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 58);
-    } else {
-        ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova";
-        ctx.fillText(away.name.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 58);
-    }
-
-    ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova Light";
-    ctx.fillText("____________", canvas.width / 2, (canvas.height / 100) * 62);
-
-    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Semibold";
-    let datex = ctx.measureText(document.querySelector('.date-textarea').value.toUpperCase());
-    console.log('datex: ' + datex.width);
-    let stadiumx = ctx.measureText(' ' + home.stadium.toUpperCase());
-    console.log('stadiumx: ' + stadiumx.width);
-
-    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Semibold";
-    ctx.fillText(document.querySelector('.date-textarea').value.toUpperCase(), canvas.width / 2 - stadiumx.width / 2, (canvas.height / 100) * 70);
-    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Light";
-    ctx.fillText(home.stadium.toUpperCase(), canvas.width / 2 + datex.width / 2, (canvas.height / 100) * 70);
-
     let homeimg = new Image();
     homeimg.onload = function () {
-        ctx.drawImage(homeimg, 0, 0, homeimg.width, homeimg.height, canvas.width / 2 - (canvas.width / 100) * 17, (canvas.height / 100) * 75, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
+        ctx.drawImage(homeimg, 0, 0, homeimg.width, homeimg.height, canvas.width / 2 - (canvas.width / 100) * 37, (canvas.height / 100) * 47, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
     }
     homeimg.src = '../assets/teams/' + home.img;
     let awayimg = new Image();
     awayimg.onload = function () {
-        ctx.drawImage(awayimg, 0, 0, awayimg.width, awayimg.height, canvas.width / 2 + (canvas.width / 100) * 2, (canvas.height / 100) * 75, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
+        ctx.drawImage(awayimg, 0, 0, awayimg.width, awayimg.height, canvas.width / 2 + (canvas.width / 100) * 22, (canvas.height / 100) * 47, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
     }
     awayimg.src = '../assets/teams/' + away.img;
+
+    ctx.font = ((canvas.height / 100) * 18) + "px Proxima Nova Bold";
+    ctx.fillText('2', canvas.width / 2 - (canvas.width / 100) * 29 , (canvas.height / 100) * 42);
+    ctx.fillText('2', canvas.width / 2 + (canvas.width / 100) * 29 , (canvas.height / 100) * 42);
+
+    ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova Bold";
+    ctx.fillText("MÅLSKYTTAR", canvas.width / 2, (canvas.height / 100) * 33);
+
+    let scorers = document.querySelector('.scorer-textarea').value.split('\n');
+    console.log(scorers.length);
+
+    ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova";
+
+    let row = 0;
+    scorers.forEach(scorer => {
+        ctx.fillText(scorer.toUpperCase(), canvas.width / 2, (canvas.height / 100) * (37 + 4 * row));
+        row++;
+    });
 
     var instaimg = document.querySelector('.insta-icon');
     ctx.drawImage(instaimg, 0, 0, instaimg.width, instaimg.height,
@@ -183,6 +165,9 @@ function drawImage() {
         (canvas.width / 100) * 5, (canvas.height / 100) * 90, (canvas.width / 100) * 3, (canvas.height / 100) * 3);
 
     ctx.fillText(document.querySelector('.fb-textarea').value.toLowerCase(), (canvas.width / 100) * 14.8, (canvas.height / 100) * 92.5);
+
+    ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
+    ctx.fillText(document.querySelector('.hashtag-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 90);
 }
 
 function saveImage() {

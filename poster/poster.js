@@ -117,9 +117,9 @@ function drawImage() {
         }
     });
 
-    ctx.font = ((canvas.height / 100) * 4) + "px Proxima Nova";
+    ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova";
     ctx.textAlign = "center";
-    ctx.fillText(document.querySelector('.division-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 5);
+    ctx.fillText(document.querySelector('.division-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 8);
 
     ctx.font = "italic " + ((canvas.height / 100) * 8) + "px Proxima Nova Bold";
     ctx.fillText(document.querySelector('.title-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 20);
