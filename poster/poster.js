@@ -71,15 +71,13 @@ function drawImage() {
         ctx = canvas.getContext('2d');
     fitToContainer(canvas);
 
-    ctx.imageSmoothingEnabled = false;
-
     ctx.fillStyle = 'white';
 
     function fitToContainer(canvas) {
         canvas.style.width = '100%';
         canvas.style.height = '100%';
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+        canvas.width = 2000;
+        canvas.height = 2000;
     }
 
     // get the scale
@@ -125,7 +123,7 @@ function drawImage() {
     ctx.font = "italic " + ((canvas.height / 100) * 8) + "px Proxima Nova Bold";
     ctx.fillText(document.querySelector('.title-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 20);
 
-    ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova";
+    ctx.font = ((canvas.height / 100) * 10) + "px Proxima Nova Light";
     ctx.fillText("____________", canvas.width / 2, (canvas.height / 100) * 26);
 
     if (home.name == 'IK Wormo') {
