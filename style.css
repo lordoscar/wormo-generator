@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'Mighty Brush';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Mighty Brush'), url('fonts/MightyBrush.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Proxima Nova';
     font-style: normal;
     font-weight: normal;
@@ -103,4 +110,8 @@ textarea {
 
 .option-control {
     width: 100%;
+}
+
+.footer {
+    font-family: 'Mighty Brush';
 }

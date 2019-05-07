@@ -36,7 +36,6 @@ $(function () {
     document.querySelector('.date-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.insta-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.fb-textarea').addEventListener("keyup", drawImage);
-    document.querySelector('.hashtag-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.home-team-select').addEventListener("change", drawImage);
     document.querySelector('.away-team-select').addEventListener("change", drawImage);
 
@@ -184,9 +183,6 @@ function drawImage() {
         (canvas.width / 100) * 5, (canvas.height / 100) * 90, (canvas.width / 100) * 3, (canvas.height / 100) * 3);
 
     ctx.fillText(document.querySelector('.fb-textarea').value.toLowerCase(), (canvas.width / 100) * 14.8, (canvas.height / 100) * 92.5);
-
-    ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
-    ctx.fillText(document.querySelector('.hashtag-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 97);
 }
 
 function saveImage() {
