@@ -39,6 +39,9 @@ $(function () {
     document.querySelector('.hashtag-textarea').addEventListener("keyup", drawImage);
     document.querySelector('.home-team-select').addEventListener("change", drawImage);
     document.querySelector('.away-team-select').addEventListener("change", drawImage);
+    document.querySelector('.home-team-goals').addEventListener("change", drawImage);
+    document.querySelector('.away-team-goals').addEventListener("change", drawImage);
+
 
     bgimg = new Image();
     bgimg.onload = function () {
@@ -136,8 +139,8 @@ function drawImage() {
     awayimg.src = '../assets/teams/' + away.img;
 
     ctx.font = ((canvas.height / 100) * 18) + "px AvantGarde Demi";
-    ctx.fillText('2', canvas.width / 2 - (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
-    ctx.fillText('2', canvas.width / 2 + (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
+    ctx.fillText(document.querySelector('.home-team-goals').value, canvas.width / 2 - (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
+    ctx.fillText(document.querySelector('.away-team-goals').value, canvas.width / 2 + (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
 
     ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova Bold";
     ctx.fillText("MÅLSKYTTAR", canvas.width / 2, (canvas.height / 100) * 37);

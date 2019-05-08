@@ -131,17 +131,17 @@ textarea {
 }
 
 .footer {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     font-size: 20px;
     font-family: 'Mighty Brush';
     text-align: center;
-    background: #2654ab;
+    background: #fff;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #fff;
+    color: #2654ab;
 }
 
 .copyright{
@@ -151,6 +151,7 @@ textarea {
 
 .invisible-text{
     height: 0;
+    color: #fff;
 }
 
 .edo{
@@ -160,10 +161,7 @@ textarea {
 .demi {
     font-family: 'AvantGarde Demi';
 }
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-    .footer {
-        position: relative;
-    }
+ 
+.wip {
+    width: 100%;
 }
