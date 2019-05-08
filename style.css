@@ -1,4 +1,18 @@
 @font-face {
+    font-family: 'Edo SZ';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Edo SZ'), url('fonts/Edo-SZ.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'AvantGarde Demi';
+    font-style: normal;
+    font-weight: normal;
+    src: local('AvantGarde Demi'), url('fonts/itc-avant-garde-gothic-demi.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Mighty Brush';
     font-style: normal;
     font-weight: normal;
@@ -58,6 +72,10 @@ body {
     font-family: 'Proxima Nova';
 }
 
+.container {
+    padding-bottom: 100px;
+}
+
 .center {
     text-align: center;
 }
@@ -114,6 +132,7 @@ textarea {
 
 .footer {
     position: absolute;
+    left: 0;
     bottom: 0;
     width: 100%;
     font-size: 20px;
@@ -128,4 +147,23 @@ textarea {
 .copyright{
     font-family: 'Proxima Nova';
     margin-left: 10px;
+}
+
+.invisible-text{
+    height: 0;
+}
+
+.edo{
+    font-family: 'Edo SZ';
+}
+
+.demi {
+    font-family: 'AvantGarde Demi';
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .footer {
+        position: relative;
+    }
 }

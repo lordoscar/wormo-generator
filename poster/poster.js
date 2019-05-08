@@ -163,12 +163,12 @@ function drawImage() {
 
     let homeimg = new Image();
     homeimg.onload = function () {
-        ctx.drawImage(homeimg, 0, 0, homeimg.width, homeimg.height, canvas.width / 2 - (canvas.width / 100) * 17, (canvas.height / 100) * 75, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
+        ctx.drawImage(homeimg, 0, 0, homeimg.width, homeimg.height, canvas.width / 2 - (canvas.width / 100) * 17, (canvas.height / 100) * 75, (canvas.width / 100) * 13, (canvas.height / 100) * 13);
     }
     homeimg.src = '../assets/teams/' + home.img;
     let awayimg = new Image();
     awayimg.onload = function () {
-        ctx.drawImage(awayimg, 0, 0, awayimg.width, awayimg.height, canvas.width / 2 + (canvas.width / 100) * 2, (canvas.height / 100) * 75, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
+        ctx.drawImage(awayimg, 0, 0, awayimg.width, awayimg.height, canvas.width / 2 + (canvas.width / 100) * 2, (canvas.height / 100) * 75, (canvas.width / 100) * 13, (canvas.height / 100) * 13);
     }
     awayimg.src = '../assets/teams/' + away.img;
 
@@ -186,7 +186,18 @@ function drawImage() {
     ctx.fillText(document.querySelector('.fb-textarea').value.toLowerCase(), (canvas.width / 100) * 14.8, (canvas.height / 100) * 92.5);
 
     ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
-    ctx.fillText(document.querySelector('.hashtag-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 97);
+
+    let textx = ctx.measureText(document.querySelector('.hashtag-textarea').value.replace("#","").toUpperCase());
+    console.log('textx: ' + textx.width);
+    ctx.font = ((canvas.height / 100) * 5) + "px Edo SZ";
+    let hashtagx = ctx.measureText('#');
+    console.log('hashtagx: ' + hashtagx.width);
+
+    ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
+    ctx.fillText('#', canvas.width / 2 - textx.width / 2 - 15, (canvas.height / 100) * 97);
+
+    ctx.font = ((canvas.height / 100) * 5) + "px Edo SZ";
+    ctx.fillText(document.querySelector('.hashtag-textarea').value.replace("#","").toUpperCase(), canvas.width / 2 + hashtagx.width / 2, (canvas.height / 100) * 97);
 }
 
 function saveImage() {

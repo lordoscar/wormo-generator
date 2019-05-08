@@ -126,21 +126,21 @@ function drawImage() {
 
     let homeimg = new Image();
     homeimg.onload = function () {
-        ctx.drawImage(homeimg, 0, 0, homeimg.width, homeimg.height, canvas.width / 2 - (canvas.width / 100) * 37, (canvas.height / 100) * 47, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
+        ctx.drawImage(homeimg, 0, 0, homeimg.width, homeimg.height, canvas.width / 2 - (canvas.width / 100) * 37, (canvas.height / 100) * 33, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
     }
     homeimg.src = '../assets/teams/' + home.img;
     let awayimg = new Image();
     awayimg.onload = function () {
-        ctx.drawImage(awayimg, 0, 0, awayimg.width, awayimg.height, canvas.width / 2 + (canvas.width / 100) * 22, (canvas.height / 100) * 47, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
+        ctx.drawImage(awayimg, 0, 0, awayimg.width, awayimg.height, canvas.width / 2 + (canvas.width / 100) * 22, (canvas.height / 100) * 33, (canvas.width / 100) * 15, (canvas.height / 100) * 15);
     }
     awayimg.src = '../assets/teams/' + away.img;
 
-    ctx.font = ((canvas.height / 100) * 18) + "px Proxima Nova Bold";
-    ctx.fillText('2', canvas.width / 2 - (canvas.width / 100) * 29 , (canvas.height / 100) * 42);
-    ctx.fillText('2', canvas.width / 2 + (canvas.width / 100) * 29 , (canvas.height / 100) * 42);
+    ctx.font = ((canvas.height / 100) * 18) + "px AvantGarde Demi";
+    ctx.fillText('2', canvas.width / 2 - (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
+    ctx.fillText('2', canvas.width / 2 + (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
 
     ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova Bold";
-    ctx.fillText("MÅLSKYTTAR", canvas.width / 2, (canvas.height / 100) * 33);
+    ctx.fillText("MÅLSKYTTAR", canvas.width / 2, (canvas.height / 100) * 37);
 
     let scorers = document.querySelector('.scorer-textarea').value.split('\n');
     console.log(scorers.length);
@@ -149,7 +149,7 @@ function drawImage() {
 
     let row = 0;
     scorers.forEach(scorer => {
-        ctx.fillText(scorer.toUpperCase(), canvas.width / 2, (canvas.height / 100) * (37 + 4 * row));
+        ctx.fillText(scorer.toUpperCase(), canvas.width / 2, (canvas.height / 100) * (41 + 4 * row));
         row++;
     });
 
@@ -167,7 +167,18 @@ function drawImage() {
     ctx.fillText(document.querySelector('.fb-textarea').value.toLowerCase(), (canvas.width / 100) * 14.8, (canvas.height / 100) * 92.5);
 
     ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
-    ctx.fillText(document.querySelector('.hashtag-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 90);
+
+    let textx = ctx.measureText(document.querySelector('.hashtag-textarea').value.replace("#","").toUpperCase());
+    console.log('textx: ' + textx.width);
+    ctx.font = ((canvas.height / 100) * 5) + "px Edo SZ";
+    let hashtagx = ctx.measureText('#');
+    console.log('hashtagx: ' + hashtagx.width);
+
+    ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
+    ctx.fillText('#', canvas.width / 2 - textx.width / 2 - 15, (canvas.height / 100) * 90);
+
+    ctx.font = ((canvas.height / 100) * 5) + "px Edo SZ";
+    ctx.fillText(document.querySelector('.hashtag-textarea').value.replace("#","").toUpperCase(), canvas.width / 2 + hashtagx.width / 2, (canvas.height / 100) * 90);
 }
 
 function saveImage() {
