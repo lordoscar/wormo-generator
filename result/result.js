@@ -41,6 +41,7 @@ $(function () {
     document.querySelector('.away-team-select').addEventListener("change", drawImage);
     document.querySelector('.home-team-goals').addEventListener("change", drawImage);
     document.querySelector('.away-team-goals').addEventListener("change", drawImage);
+    document.querySelector('.show-scorers').addEventListener("change", drawImage);
 
 
     bgimg = new Image();
@@ -139,22 +140,30 @@ function drawImage() {
     awayimg.src = '../assets/teams/' + away.img;
 
     ctx.font = ((canvas.height / 100) * 18) + "px AvantGarde Demi";
-    ctx.fillText(document.querySelector('.home-team-goals').value, canvas.width / 2 - (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
-    ctx.fillText(document.querySelector('.away-team-goals').value, canvas.width / 2 + (canvas.width / 100) * 29 , (canvas.height / 100) * 65);
+    ctx.fillText(document.querySelector('.home-team-goals').value, canvas.width / 2 - (canvas.width / 100) * 29, (canvas.height / 100) * 65);
+    ctx.fillText(document.querySelector('.away-team-goals').value, canvas.width / 2 + (canvas.width / 100) * 29, (canvas.height / 100) * 65);
 
-    ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova Bold";
-    ctx.fillText("MÅLSKYTTAR", canvas.width / 2, (canvas.height / 100) * 37);
+    if (document.querySelector('.show-scorers').checked) {
+        ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova Bold";
+        ctx.fillText("MÅLSKYTTAR", canvas.width / 2, (canvas.height / 100) * 37);
 
-    let scorers = document.querySelector('.scorer-textarea').value.split('\n');
-    console.log(scorers.length);
+        let scorers = document.querySelector('.scorer-textarea').value.split('\n');
+        console.log(scorers.length);
 
-    ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova";
+        ctx.font = ((canvas.height / 100) * 3.5) + "px Proxima Nova";
 
-    let row = 0;
-    scorers.forEach(scorer => {
-        ctx.fillText(scorer.toUpperCase(), canvas.width / 2, (canvas.height / 100) * (41 + 4 * row));
-        row++;
-    });
+        let row = 0;
+        scorers.forEach(scorer => {
+            ctx.fillText(scorer.toUpperCase(), canvas.width / 2, (canvas.height / 100) * (41 + 4 * row));
+            row++;
+        });
+    } else {
+        ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova";
+        ctx.fillText(home.stadium.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 45);
+
+        ctx.font = ((canvas.height / 100) * 3) + "px Proxima Nova Semibold";
+        ctx.fillText(document.querySelector('.date-textarea').value.toUpperCase(), canvas.width / 2, (canvas.height / 100) * 48);
+    }
 
     var instaimg = document.querySelector('.insta-icon');
     ctx.drawImage(instaimg, 0, 0, instaimg.width, instaimg.height,
@@ -171,7 +180,7 @@ function drawImage() {
 
     ctx.font = ((canvas.height / 100) * 5) + "px Mighty Brush";
 
-    let textx = ctx.measureText(document.querySelector('.hashtag-textarea').value.replace("#","").toUpperCase());
+    let textx = ctx.measureText(document.querySelector('.hashtag-textarea').value.replace("#", "").toUpperCase());
     console.log('textx: ' + textx.width);
     ctx.font = ((canvas.height / 100) * 5) + "px Edo SZ";
     let hashtagx = ctx.measureText('#');
@@ -181,7 +190,7 @@ function drawImage() {
     ctx.fillText('#', canvas.width / 2 - textx.width / 2 - 15, (canvas.height / 100) * 90);
 
     ctx.font = ((canvas.height / 100) * 5) + "px Edo SZ";
-    ctx.fillText(document.querySelector('.hashtag-textarea').value.replace("#","").toUpperCase(), canvas.width / 2 + hashtagx.width / 2, (canvas.height / 100) * 90);
+    ctx.fillText(document.querySelector('.hashtag-textarea').value.replace("#", "").toUpperCase(), canvas.width / 2 + hashtagx.width / 2, (canvas.height / 100) * 90);
 }
 
 function saveImage() {
@@ -220,7 +229,7 @@ function saveImage() {
 }
 
 // must be called in a click handler or some other user action
-var download = function(filename, dataUrl) {
+var download = function (filename, dataUrl) {
     var element = document.createElement('a')
 
     var dataBlob = dataURLtoBlob(dataUrl)
@@ -233,9 +242,9 @@ var download = function(filename, dataUrl) {
     element.click()
 
     var clickHandler;
-    element.addEventListener('click', clickHandler=function() {
+    element.addEventListener('click', clickHandler = function () {
         // ..and to wait a frame
-        requestAnimationFrame(function() {
+        requestAnimationFrame(function () {
             URL.revokeObjectURL(element.href);
         })
 
@@ -248,17 +257,17 @@ var download = function(filename, dataUrl) {
 
 
 // from Abhinav's answer at  https://stackoverflow.com/questions/37135417/download-canvas-as-png-in-fabric-js-giving-network-error/
-var dataURLtoBlob = function(dataurl) {
+var dataURLtoBlob = function (dataurl) {
     var parts = dataurl.split(','), mime = parts[0].match(/:(.*?);/)[1]
-    if(parts[0].indexOf('base64') !== -1) {
+    if (parts[0].indexOf('base64') !== -1) {
         var bstr = atob(parts[1]), n = bstr.length, u8arr = new Uint8Array(n)
-        while(n--){
+        while (n--) {
             u8arr[n] = bstr.charCodeAt(n)
         }
 
-        return new Blob([u8arr], {type:mime})
+        return new Blob([u8arr], { type: mime })
     } else {
         var raw = decodeURIComponent(parts[1])
-        return new Blob([raw], {type: mime})
+        return new Blob([raw], { type: mime })
     }
 }
