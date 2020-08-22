@@ -11,6 +11,26 @@
             "img": "img/besa.png"
         },
         {
+            "name": "Borstahusens BK",
+            "stadium": "Ulkavallen",
+            "img": "img/bbk.png"
+        },
+        {
+            "name": "Glumslövs FF",
+            "stadium": "Örevångs IP",
+            "img": "img/gff.png"
+        },
+        {
+            "name": "Bjärreds IF",
+            "stadium": "Borgeby IP",
+            "img": "img/bif.png"
+        },
+        {
+            "name": "FC Örkelljunga",
+            "stadium": "Örkelljunga IP",
+            "img": "img/orkelljunga.png"
+        },
+        {
             "name": "Vejby IF",
             "stadium": "Vejby IP",
             "img": "img/vejby.png"
@@ -59,6 +79,11 @@
             "name": "Tågarps AIK",
             "stadium": "Tågarps IP",
             "img": "img/klippan.png"
+        },
+        {
+            "name": "Västra Karups IF",
+            "stadium": "Västra Karups IP",
+            "img": "img/vk.png"
         }
     ],
     "dam": [

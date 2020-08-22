@@ -1,1 +1,146 @@
-data = '{ "herr": [ { "name": "IK Wormo", "stadium": "Exercisfältet", "img": "img/wormo.png" }, { "name": "FK Besa", "stadium": "Landskrona IP", "img": "img/besa.png" }, { "name": "Vejby IF", "stadium": "Vejby IP", "img": "img/vejby.png" }, { "name": "Åstorps FF", "stadium": "Bjärshögs IP", "img": "img/astorp.png" }, { "name": "Klippans FF", "stadium": "Åbyvallen", "img": "img/klippan.png" }, { "name": "Kågeröds BoIF", "stadium": "Brahevallen", "img": "img/kagerod.png" }, { "name": "Ekets GoIF", "stadium": "Ryavallen", "img": "img/eket.png" }, { "name": "Kullavägens BK", "stadium": "Norrvalla IP", "img": "img/kullavagen.png" }, { "name": "Fortuna FF", "stadium": "Rydebäcks IP", "img": "img/fortuna.png" }, { "name": "Bjuvstorps FF", "stadium": "Hedvalla", "img": "img/bjuvstorp.png" }, { "name": "Ödåkra IF", "stadium": "Toftavallen", "img": "img/odakra.png" }, { "name": "Tågarps AIK", "stadium": "Tågarps IP", "img": "img/tagarp.png" } ], "dam": [ { "name": "IK Wormo", "stadium": "Exercisfältet", "img": "img/wormo.png" }, { "name": "Röke IF", "stadium": "Röke IP", "img": "img/roke.png" }, { "name": "Västra Karups IF", "stadium": "Västra Karups IP", "img": "img/vk.png" }, { "name": "Halmstads BK", "stadium": "Halmstad Arena", "img": "img/halmstad.png" }, { "name": "Laholms FK", "stadium": "Glänninge Park", "img": "img/laholm.png" }, { "name": "Trönninge IF", "stadium": "Tuvasvallen", "img": "img/tronninge.png" }, { "name": "IF Centern", "stadium": "Kärlekens IP", "img": "img/centern.png" }, { "name": "BK Astrio", "stadium": "Söndrums IP", "img": "img/astrio.png" }, { "name": "BK Höllviken", "stadium": "Höllvikens IP", "img": "img/hollviken.png" }, { "name": "Eskilsminne DFF", "stadium": "Västergårds IP", "img": "img/eskilsminne.png" }, { "name": "Kullabygdens DFF", "stadium": "Höganäs Sportcenter", "img": "img/kullabygden.png" } ] }';
+const teams = {
+    herr: [
+      {
+        name: 'IK Wormo',
+        stadium: 'Exercisfältet',
+        img: 'img/wormo.png'
+      },
+      {
+        name: 'FK Besa',
+        stadium: 'Landskrona IP',
+        img: 'img/besa.png'
+      },
+      {
+        name: 'Borstahusens BK',
+        stadium: 'Ulkavallen',
+        img: 'img/bbk.png'
+      },
+      {
+        name: 'Glumslövs FF',
+        stadium: 'Örevångs IP',
+        img: 'img/gff.png'
+      },
+      {
+        name: 'Bjärreds IF',
+        stadium: 'Borgeby IP',
+        img: 'img/bif.png'
+      },
+      {
+        name: 'FC Örkelljunga',
+        stadium: 'Örkelljunga IP',
+        img: 'img/orkelljunga.png'
+      },
+      {
+        name: 'Vejby IF',
+        stadium: 'Vejby IP',
+        img: 'img/vejby.png'
+      },
+      {
+        name: 'Åstorps FF',
+        stadium: 'Bjärshögs IP',
+        img: 'img/astorp.png'
+      },
+      {
+        name: 'Klippans FF',
+        stadium: 'Åbyvallen',
+        img: 'img/klippan.png'
+      },
+      {
+        name: 'Kågeröds BoIF',
+        stadium: 'Brahevallen',
+        img: 'img/kagerod.png'
+      },
+      {
+        name: 'Ekets GoIF',
+        stadium: 'Ryavallen',
+        img: 'img/eket.png'
+      },
+      {
+        name: 'Kullavägens BK',
+        stadium: 'Norrvalla IP',
+        img: 'img/kullavagen.png'
+      },
+      {
+        name: 'Fortuna FF',
+        stadium: 'Rydebäcks IP',
+        img: 'img/fortuna.png'
+      },
+      {
+        name: 'Bjuvstorps FF',
+        stadium: 'Hedvalla',
+        img: 'img/bjuvstorp.png'
+      },
+      {
+        name: 'Ödåkra IF',
+        stadium: 'Toftavallen',
+        img: 'img/odakra.png'
+      },
+      {
+        name: 'Tågarps AIK',
+        stadium: 'Tågarps IP',
+        img: 'img/klippan.png'
+      },
+      {
+        name: 'Västra Karups IF',
+        stadium: 'Västra Karups IP',
+        img: 'img/vk.png'
+      }
+    ],
+    dam: [
+      {
+        name: 'IK Wormo',
+        stadium: 'Exercisfältet',
+        img: 'img/wormo.png'
+      },
+      {
+        name: 'Röke IF',
+        stadium: 'Röke IP',
+        img: 'img/roke.png'
+      },
+      {
+        name: 'Västra Karups IF',
+        stadium: 'Västra Karups IP',
+        img: 'img/vk.png'
+      },
+      {
+        name: 'Halmstads BK',
+        stadium: 'Halmstad Arena',
+        img: 'img/halmstad.png'
+      },
+      {
+        name: 'Laholms FK',
+        stadium: 'Glänninge Park',
+        img: 'img/laholm.png'
+      },
+      {
+        name: 'Trönninge IF',
+        stadium: 'Tuvasvallen',
+        img: 'img/tronninge.png'
+      },
+      {
+        name: 'IF Centern',
+        stadium: 'Kärlekens IP',
+        img: 'img/centern.png'
+      },
+      {
+        name: 'BK Astrio',
+        stadium: 'Söndrums IP',
+        img: 'img/astrio.png'
+      },
+      {
+        name: 'BK Höllviken',
+        stadium: 'Höllvikens IP',
+        img: 'img/hollviken.png'
+      },
+      {
+        name: 'Eskilsminne DFF',
+        stadium: 'Västergårds IP',
+        img: 'img/eskilsminne.png'
+      },
+      {
+        name: 'Kullabygdens DFF',
+        stadium: 'Höganäs Sportcenter',
+        img: 'img/kullabygden.png'
+      }
+    ]
+  }
